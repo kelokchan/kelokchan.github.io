@@ -6600,3 +6600,6 @@ button.close {
 .footer-social { margin-top:25px;}
 .footer-social li { display: inline;}
 .footer-social span { margin-top: -20px;}
+#container {
+	display: none;
+}

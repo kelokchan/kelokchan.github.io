@@ -6,6 +6,7 @@
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:400,600);
+
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -4861,7 +4862,7 @@ a.badge:focus {
   padding: 30px 15px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: #0097A7;
+  background-color: #008da7;
   box-shadow:0 8px 16px 0 rgba(0,0,0,0.2);
 }
 .header-text {

@@ -3,6 +3,10 @@
 }
 
 .profile-pic {
-  width: 150px; 
+  width: 150px;
   height: 150px;
+}
+
+.welcome {
+  color: white;
 }

@@ -1,12 +1,12 @@
 .high {
-  color: #00fc61;
+    color: #00fc61;
 }
 
 .profile-pic {
-  width: 150px;
-  height: 150px;
+    width: 150px;
+    height: 150px;
 }
 
 .welcome {
-  color: white;
+    color: white !important;
 }

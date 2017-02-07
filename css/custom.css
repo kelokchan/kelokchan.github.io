@@ -1,5 +1,18 @@
-.high {
-    color: #00fc61;
+.w3-card {
+    padding: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important
+}
+
+.footer-social {
+    margin-top: 25px;
+}
+
+.footer-social li {
+    display: inline;
+}
+
+.footer-social span {
+    margin-top: -20px;
 }
 
 .profile-pic {
@@ -9,4 +22,8 @@
 
 .welcome {
     color: white !important;
+}
+
+#container {
+    display: none;
 }

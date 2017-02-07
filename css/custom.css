@@ -27,3 +27,13 @@
 #container {
     display: none;
 }
+
+ul {
+  list-style-type: none !important;
+}
+
+ul > li > h4:before {
+  content: '-' !important; /* en dash */ 
+  position: absolute !important;
+  margin-left: -1.1em !important; 
+}

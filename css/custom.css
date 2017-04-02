@@ -34,7 +34,7 @@ ul {
 }
 
 ul > li > h4:before {
-  content: '-' !important; /* en dash */ 
+  content: '-' !important; /* en dash */
   position: absolute !important;
-  margin-left: -1.1em !important; 
+  margin-left: -1.1em !important;
 }

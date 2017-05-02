@@ -1,6 +1,6 @@
 (function () {
     'use strict';
     $(document).ready(function () {
-        $('#container').fadeIn(500);
+        $('body').fadeIn(750);
     });
 })();

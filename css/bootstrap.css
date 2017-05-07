@@ -1469,7 +1469,6 @@ img {
 .img-circle {
     border: 2px solid white;
     border-radius: 50%;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 hr {
@@ -5823,9 +5822,14 @@ a.badge:focus {
 .jumbotron {
     padding: 30px 15px;
     margin-bottom: 30px;
-    color: inherit;
-    background-color: #5895ff;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background: -moz-linear-gradient(90deg, #5876DB 0%, #547CE5 28%, #4A8CFF 100%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4A8CFF), color-stop(72%, #547CE5), color-stop(100%, #5876DB)); /* safari4+,chrome */
+    background: -webkit-linear-gradient(90deg, #5876DB 0%, #547CE5 28%, #4A8CFF 100%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(90deg, #5876DB 0%, #547CE5 28%, #4A8CFF 100%); /* opera 11.10+ */
+    background: -ms-linear-gradient(90deg, #5876DB 0%, #547CE5 28%, #4A8CFF 100%); /* ie10+ */
+    background: linear-gradient(0deg, #5876DB 0%, #547CE5 28%, #4A8CFF 100%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4A8CFF', endColorstr='#5876DB',GradientType=0 ); /* ie6-9 */
 }
 
 .header-text {

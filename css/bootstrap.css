@@ -5824,7 +5824,7 @@ a.badge:focus {
     padding: 30px 15px;
     margin-bottom: 30px;
     color: inherit;
-    background-color: #008da7;
+    background-color: #5895ff;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -7849,13 +7849,6 @@ button.close {
         display: none !important;
     }
 }
-
-.footer-text {
-    margin-top: 15px;
-}
-
-
-
 
 /*# sourceMappingURL=bootstrap.css.map */
 

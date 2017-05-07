@@ -16,6 +16,10 @@
     margin-top: -20px;
 }
 
+.footer-text {
+    margin-top: 5px;
+}
+
 .profile-pic {
     width: 150px;
     height: 150px;
@@ -37,4 +41,9 @@ ul > li > h4:before {
   content: '-' !important; /* en dash */
   position: absolute !important;
   margin-left: -1.1em !important;
+}
+
+.divider {
+    margin: 30px -150px 30px -150px !important;
+    border-radius: 0;
 }

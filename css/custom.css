@@ -25,6 +25,10 @@
     color: white !important;
 }
 
+.margin-bt-25 {
+    margin-bottom: 25px;
+}
+
 body {
     display: none;
 }

@@ -1,18 +1,19 @@
-.footer-social {
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.footer-social li {
-    display: inline;
-}
-
-.footer-social span {
-    margin-top: -20px;
-}
-
 .footer-text {
-    margin-top: 5px;
+    margin-top: 15px;
+}
+
+.fa {
+  font-size: 20px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  background-color: white;
+  color: black;
+}
+
+.fa:hover {
+    opacity: 0.7;
 }
 
 .profile-pic {

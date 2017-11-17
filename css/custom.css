@@ -13,6 +13,7 @@
 }
 
 .fa:hover {
+    color: #4A8CFF;     
     opacity: 0.7;
 }
 
@@ -44,8 +45,6 @@ ul > li > h4:before {
   margin-left: -1.1em !important;
 }
 
-
-
 .divider {
     margin: 30px -150px 30px -150px !important;
     border-radius: 0;
@@ -57,5 +56,5 @@ ul > li > h4:before {
 
 .list-icons .list-inline-item i:hover {
     cursor: default;
-    color: #547CE5; 
+    color: #4A8CFF; 
 }

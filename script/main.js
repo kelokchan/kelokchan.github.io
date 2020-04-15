@@ -1,7 +1,9 @@
 (function () {
-    'use strict';
-    $(document).ready(function () {
-        $('body').fadeIn(750);
-        $('#year').text(new Date().getFullYear());
-    });
+  'use strict';
+
+  window.onload = function () {
+    document.body.style.opacity = 1;
+  };
+
+  document.getElementById('year').innerHTML = new Date().getFullYear();
 })();

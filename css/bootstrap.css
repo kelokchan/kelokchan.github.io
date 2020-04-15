@@ -5823,13 +5823,9 @@ a.badge:focus {
     padding: 30px 15px;
     margin-bottom: 30px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    background: -moz-linear-gradient(90deg, #5876DB 0%, #547CE5 28%, #4A8CFF 100%); /* ff3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #4A8CFF), color-stop(72%, #547CE5), color-stop(100%, #5876DB)); /* safari4+,chrome */
-    background: -webkit-linear-gradient(90deg, #5876DB 0%, #547CE5 28%, #4A8CFF 100%); /* safari5.1+,chrome10+ */
-    background: -o-linear-gradient(90deg, #5876DB 0%, #547CE5 28%, #4A8CFF 100%); /* opera 11.10+ */
-    background: -ms-linear-gradient(90deg, #5876DB 0%, #547CE5 28%, #4A8CFF 100%); /* ie10+ */
-    background: linear-gradient(0deg, #5876DB 0%, #547CE5 28%, #4A8CFF 100%); /* w3c */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4A8CFF', endColorstr='#5876DB',GradientType=0 ); /* ie6-9 */
+    background: #396afc;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #2978ff, #396afc);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #2978ff, #396afc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */    
 }
 
 .header-text {

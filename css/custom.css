@@ -1,5 +1,11 @@
+body {
+  opacity: 0;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s; /* Safari */
+}
+
 .footer-text {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .fa {
@@ -13,26 +19,22 @@
 }
 
 .fa:hover {
-    color: #4A8CFF;     
-    opacity: 0.7;
+  color: #4a8cff;
+  opacity: 0.7;
 }
 
 .profile-pic {
-    width: 150px;
-    height: 150px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  width: 150px;
+  height: 150px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .welcome {
-    color: white !important;
+  color: white !important;
 }
 
 .margin-bt-25 {
-    margin-bottom: 25px;
-}
-
-body {
-    display: none;
+  margin-bottom: 25px;
 }
 
 ul {
@@ -46,15 +48,15 @@ ul > li > h4:before {
 }
 
 .divider {
-    margin: 30px -150px 30px -150px !important;
-    border-radius: 0;
+  margin: 30px -150px 30px -150px !important;
+  border-radius: 0;
 }
 
 .list-icons {
-    font-size: 3rem; 
+  font-size: 3rem;
 }
 
 .list-icons .list-inline-item i:hover {
-    cursor: default;
-    color: #4A8CFF; 
+  cursor: default;
+  color: #4a8cff;
 }

@@ -1,11 +1,25 @@
 body {
+  background-color: white;
+  color: black;
   opacity: 0;
   transition: opacity 1s;
   -webkit-transition: opacity 1s; /* Safari */
+  font-family: 'Source Code Pro', monospace;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(35, 35, 35);
+    color: white;
+  }
+}
+
+h5 {
+  line-height: 1.5em !important;
 }
 
 .footer-text {
-  margin-top: 15px;
+  margin-bottom: 20px;
 }
 
 .fa {
@@ -23,10 +37,22 @@ body {
   opacity: 0.7;
 }
 
+a {
+  color: rgb(14, 169, 3);
+}
+
+.name {
+  margin-bottom: 15px;
+}
+
 .profile-pic {
-  width: 150px;
-  height: 150px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  margin-top: 30px;
+  margin-bottom: 20px;
+  width: 210px;
+  height: 210px;
+  box-shadow: rgba(14, 169, 3, 0.4) -5px 5px, rgba(14, 169, 3, 0.3) -10px 10px,
+    rgba(14, 169, 3, 0.2) -15px 15px, rgba(14, 169, 3, 0.1) -20px 20px,
+    rgba(14, 169, 3, 0.05) -25px 25px;
 }
 
 .welcome {
@@ -54,9 +80,4 @@ ul > li > h4:before {
 
 .list-icons {
   font-size: 3rem;
-}
-
-.list-icons .list-inline-item i:hover {
-  cursor: default;
-  color: #4a8cff;
 }

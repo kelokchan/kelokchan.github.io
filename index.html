@@ -2,233 +2,113 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kelok Chan</title>
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-  <link rel="stylesheet" href="css/custom.css">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      text-align: center;
+      padding: 0 16px;
+      font-family: 'Quicksand', sans-serif;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    h3 {
+      margin-bottom: 32px;
+    }
+
+    a {
+      color: inherit;
+      margin-bottom: 8px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #111111;
+        color: #fff;
+      }
+    }
+
+    .emoji {
+      font-size: 10rem;
+      animation-name: wave-animation;
+      animation-duration: 5s;
+      animation-iteration-count: infinite;
+      transform-origin: 70% 70%;
+      display: inline-block;
+      transition: all 0.5s ease-in-out;
+    }
+
+    @media (max-width: 768px) {
+      .emoji {
+        font-size: 6rem;
+      }
+    }
+
+    @keyframes wave-animation {
+      0% {
+        transform: rotate(0.0deg)
+      }
+
+      10% {
+        transform: rotate(14.0deg)
+      }
+
+      /* The following five values can be played with to make the waving more or less extreme */
+      20% {
+        transform: rotate(-8.0deg)
+      }
+
+      30% {
+        transform: rotate(14.0deg)
+      }
+
+      40% {
+        transform: rotate(-4.0deg)
+      }
+
+      50% {
+        transform: rotate(10.0deg)
+      }
+
+      60% {
+        transform: rotate(0.0deg)
+      }
+
+      100% {
+        transform: rotate(0.0deg)
+      }
+    }
+  </style>
 </head>
 
-<body class="container">
-  <section>
-    <div>
-      <img class="img-circle profile-pic" alt="Profile picture" src="img/profile_pic.png">
-      <h1 class="name">Kelok Chan</h1>
-      <h5>こんにちは, 你好 👋 Kelok here. I'm a frontend developer that specilize in React and React Native. I have been
-        learning to Solidity and NodeJS during my free time too.<br><br>When I'm not coding, I like to play games and
-        watch lotsa anime. A typical otaku yes, but I'm very sociable! Come
-        and say hi!
-      </h5>
-    </div>
-  </section>
-
-  <section>
-    <div>
-      <div class="page-header">
-        <h2>Skills</h2>
-      </div>
-      <h4>Programming Languages &amp; Framework</h4>
-      <ul class="list-inline list-icons">
-        <li class="list-inline-item">
-          <i class="devicon-typescript-plain colored"></i>
-        </li>
-        <li class="list-inline-item">
-          <i class="devicon-javascript-plain colored"></i>
-        </li>
-        <li class="list-inline-item">
-          <i class="devicon-react-plain colored"></i>
-        </li>
-        <li class="list-inline-item">
-          <i class="devicon-angularjs-plain colored"></i>
-        </li>
-        <li class="list-inline-item">
-          <i class="devicon-laravel-plain colored"></i>
-        </li>
-      </ul>
-      <br>
-      <h4>Workflow</h4>
-      <ul class="list-inline">
-        <li>
-          <h5>- Responsive Design</h4>
-        </li>
-        <li>
-          <h5>- Agile Development &amp; Scrum</h4>
-        </li>
-        <li>
-          <h5>- Unit Testing</h4>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="page-header">
-      <h2>Working Experience</h2>
-    </div>
-    <a target="_blank" href="https://drive.google.com/file/d/1yvPri40jTPWQyhrNhl2DNmErAyZx4nN6/view?usp=sharing">
-      <h4 class="margin-bt-25">(Resume)</h4>
-    </a>
-    <div>
-      <ul>
-        <li>
-          <h4>
-            <a target="_blank" href="https://niftykit.com/">NiftyKit</a> - Web Developer
-          </h4>
-          <sm>
-            <i>(March 2021 - Current)</i>
-          </sm>
-        </li>
-        <li>
-          <h4>
-            <a target="_blank" href="http://www.sunline-i.com/aboutus.html">Sunline International (Malaysia) Sdn
-              Bhd</a> - Mobile Application Developer
-          </h4>
-          <sm>
-            <i>(March 2018 - March 2021)</i>
-          </sm>
-        </li>
-        <li>
-          <h4>
-            <a target="_blank" href="https://play.google.com/store/apps/developer?id=AOne">AOneSchools</a> -
-            Freelance mobile app developer
-          </h4>
-          <sm>
-            <i>(October 2018 - Current)</i>
-          </sm>
-        </li>
-        <li>
-          <h4>
-            <a target="_blank"
-              href="http://www.jobstreet.com.my/en/job/for-it-students-mobile-app-up-to-rm1200-for-top-graduates-3017972?fr=M">iFAST
-              Capital Sdn Bhd</a> - Software Engineer Intern
-          </h4>
-          <sm>
-            <i>(March 2016 - June 2016)</i>
-          </sm>
-        </li>
-      </ul>
-      <br />
-      <p>
-        <i>(More projects can be found on my
-          <a target="_blank" href="http://www.github.com/kelokchan">GitHub</a>
-        </i> page)
-      </p>
-    </div>
-  </section>
-
-  <section>
-    <div class="page-header">
-      <h2>Education</h2>
-    </div>
-    <div>
-      <h4>
-        <a target="_blank"
-          href="https://drive.google.com/folderview?id=0B4jFyuwvn_uVbHdhMjRuQjJRcjA&usp=sharing">(Academic
-          Report)</a>
-      </h4>
-      <br>
-      <ul>
-        <li>
-          <h4>Queensland University of Technology -
-            <a target="_blank"
-              href="https://www.qut.edu.au/study/courses/bachelor-of-information-technology/bachelor-of-information-technology-computer-science">Bachelor
-              of Information Technology (Computer Science)</a>
-          </h4>
-          <sm>
-            CGPA - 6.375 out of 7
-            <i>(2017)</i>
-          </sm>
-        </li>
-        <li>
-          <h4>Asia Pacific University -
-            <a target="_blank"
-              href="http://www.apu.edu.my/our-courses/undergraduate-studies/school-computing-technology/bsc-hons-software-engineering">Bachelor
-              of Science in Software Engineering</a>
-          </h4>
-          <sm>
-            CGPA - 3.78 out of 4
-            <i>(2014-2016)</i>
-          </sm>
-        </li>
-        <li>
-          <h4>KDU University College -
-            <a target="_blank" href="http://afterschool.my/course/australian-matriculation-ausmat-2/">Australian
-              Matriculation</a>
-          </h4>
-          <sm>
-            ATAR - 88.75 out of 100
-            <i>(2013)</i>
-          </sm>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="page-header">
-      <h2>Achievements</h2>
-    </div>
-    <div>
-      <ul>
-        <li>
-          <h4>
-            <a target="_blank" href="http://www.hackathon.io/spheradical">AngelHack Brisbane 2017 (Sphero Challenge
-              Winner | The Tech Challenge Winner)</a>
-          </h4>
-        </li>
-        <li>
-          <h4>
-            <a target="_blank" href="http://www.hackathon.io/cross10">AngelHack KL 2016 (Top 10 Finalist)</a>
-          </h4>
-        </li>
-        <li>
-          <h4>
-            <a target="_blank" href="https://www.youtube.com/playlist?list=PLRtg1MPYw1irqQFqwRbBx2cLqEFxjBGmC">Sunway
-              Campus Life Hackday 2015 (2nd Runner Up)</a>
-          </h4>
-        </li>
-        <li>
-          <h4>
-            <a target="_blank" href="https://www.facebook.com/ImagineHack/">Imagine Hackathon 2015 (Committee)</a>
-          </h4>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="footer-text">
-      <div class="page-header">
-        <h2>Call Me Maybe?</h2>
-      </div>
-      <h4>
-        <a href="mailto:kelokchan@gmail.com">kelokchan@gmail.com</a>
-      </h4>
-      <div>
-        <a target="_blank" href="http://www.github.com/kelokchan">
-          <i class="fa fa-github"></i>
-        </a>
-        <a target="_blank" href="http://stackoverflow.com/users/4973453/kelok-chan">
-          <i class="fa fa-stack-overflow"></i>
-        </a>
-        <a target="_blank" href="https://www.linkedin.com/in/kuok-kit-chan-042048ba">
-          <i class="fa fa-linkedin"></i>
-        </a>
-      </div>
-  </section>
-
-  <!-- <script type="text/javascript" src="script/jquery-3.1.0.min.js"></script> -->
-  <script type="text/javascript" src="script/main.js"></script>
-  <script type="text/javascript" src="script/ga.js">
-  </script>
+<body>
+  <span class="emoji">👋</span>
+  <h1>Hello! I'm Kelok!</h1>
+  <h3>Feel free to contact me through my
+    <a href="mailto:kelokchan@gmail.com"><i>email</i></a>
+    and visit any of the links below: 🫰
+  </h3>
+  <a href="https://www.linkedin.com/in/kelokchan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  <a href="https://stackoverflow.com/users/4973453/kelok-chan" target="_blank" rel="noopener noreferrer">Stack
+    Overflow</a>
+  <a href="https://github.com/kelokchan" target="_blank" rel="noopener noreferrer">GitHub</a>
+  </ul>
 </body>
 
 </html>

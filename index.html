@@ -22,6 +22,7 @@
       padding: 0 16px;
       font-family: 'Quicksand', sans-serif;
       letter-spacing: 1px;
+      overflow: hidden;
     }
 
     h1 {
@@ -44,7 +45,8 @@
       }
     }
 
-    .emoji {
+    .handwave {
+      cursor: pointer;
       font-size: 10rem;
       animation-name: wave-animation;
       animation-duration: 5s;
@@ -55,7 +57,7 @@
     }
 
     @media (max-width: 768px) {
-      .emoji {
+      .handwave {
         font-size: 6rem;
       }
     }
@@ -94,12 +96,39 @@
         transform: rotate(0.0deg)
       }
     }
+
+    .bouncing {
+      position: absolute;
+      animation: moveX 1s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
+      transform: translate3d(0, 0, 0);
+    }
+
+
+    @keyframes moveX {
+      from {
+        left: 0;
+      }
+
+      to {
+        left: calc(100vw - 6rem);
+      }
+    }
+
+    @keyframes moveY {
+      from {
+        top: 0;
+      }
+
+      to {
+        top: calc(100vh - 8rem);
+      }
+    }
   </style>
 </head>
 
 <body>
-  <span class="emoji">👋</span>
-  <h1>Hello! Kelok here, a software developer</h1>
+  <span class="handwave">👋</span>
+  <h1 clasS="title">Hello! Kelok here, a software developer</h1>
   <h3>Feel free to contact me through my
     <a href="mailto:kelokchan@gmail.com"><i>email</i></a>
     and visit any of the links below: 🫰
@@ -110,5 +139,17 @@
   <a href="https://github.com/kelokchan" target="_blank" rel="noopener noreferrer">GitHub</a>
   </ul>
 </body>
+<script>
+  const handwave = document.querySelector('.handwave');
+  const title = document.querySelector('.title');
+
+  handwave.addEventListener('click', () => {
+    handwave.classList.add('bouncing');
+    handwave.innerHTML = '🙌';
+
+    title.innerHTML = 'Yay Hi 5 🙌';
+
+  });
+</script>
 
 </html>

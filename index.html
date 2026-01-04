@@ -1,155 +1,256 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelok Chan</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-color: #f5f5dc;
+        --text-color: #934c04;
+        --accent-color: #1c0e05;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kelok Chan</title>
-  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-  <style>
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      margin: 0;
-      text-align: center;
-      padding: 0 16px;
-      font-family: 'Quicksand', sans-serif;
-      letter-spacing: 1px;
-      overflow: hidden;
-    }
-
-    h1 {
-      margin-bottom: 0;
-    }
-
-    h3 {
-      margin-bottom: 32px;
-    }
-
-    a {
-      color: inherit;
-      margin-bottom: 8px;
-    }
-
-    @media (prefers-color-scheme: dark) {
       body {
-        background-color: #111111;
-        color: #fff;
-      }
-    }
-
-    .handwave {
-      cursor: pointer;
-      font-size: 10rem;
-      animation-name: wave-animation;
-      animation-duration: 5s;
-      animation-iteration-count: infinite;
-      transform-origin: 70% 70%;
-      display: inline-block;
-      transition: all 0.5s ease-in-out;
-    }
-
-    @media (max-width: 768px) {
-      .handwave {
-        font-size: 6rem;
-      }
-    }
-
-    @keyframes wave-animation {
-      0% {
-        transform: rotate(0.0deg)
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: 'Gochi Hand', cursive;
+        margin: 0;
+        padding: 40px;
+        min-height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow-x: hidden;
+        position: relative;
       }
 
-      10% {
-        transform: rotate(14.0deg)
+      h1,
+      h1 small,
+      p,
+      h3,
+      .links a {
+        clip-path: inset(0 100% 0 0);
+        animation: writeText 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
+        display: inline-block;
+        vertical-align: bottom;
+        white-space: nowrap;
       }
 
-      /* The following five values can be played with to make the waving more or less extreme */
-      20% {
-        transform: rotate(-8.0deg)
+      h3 {
+        white-space: normal;
+        animation-duration: 1.5s;
       }
 
-      30% {
-        transform: rotate(14.0deg)
+      h1 {
+        animation-delay: 0.1s;
+      }
+      h1 small {
+        animation-delay: 1.5s;
+      }
+      main h3 {
+        animation-delay: 2s;
+      }
+      .links a:nth-child(1) {
+        animation-delay: 3s;
+      }
+      .links a:nth-child(2) {
+        animation-delay: 3.2s;
+      }
+      .links a:nth-child(3) {
+        animation-delay: 3.4s;
       }
 
-      40% {
-        transform: rotate(-4.0deg)
+      @keyframes writeText {
+        to {
+          clip-path: inset(0 0 0 0);
+        }
       }
 
-      50% {
-        transform: rotate(10.0deg)
+      .wavy-border {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: calc(100% - 40px);
+        height: calc(100% - 40px);
+        pointer-events: none;
+        z-index: -1;
+        overflow: visible;
       }
 
-      60% {
-        transform: rotate(0.0deg)
+      .wave {
+        stroke: var(--text-color);
+        stroke-width: 3px;
+        fill: none;
+        filter: url(#wavyFilter);
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        animation: borderDraw 2s ease-out forwards;
       }
 
-      100% {
-        transform: rotate(0.0deg)
-      }
-    }
-
-    .bouncing {
-      position: absolute;
-      animation: moveX 1s linear 0s infinite alternate, moveY 3.4s linear 0s infinite alternate;
-      transform: translate3d(0, 0, 0);
-    }
-
-
-    @keyframes moveX {
-      from {
-        left: 0;
+      @keyframes borderDraw {
+        from {
+          stroke-dashoffset: 1;
+        }
+        to {
+          stroke-dashoffset: 0;
+        }
       }
 
-      to {
-        left: calc(100vw - 6rem);
-      }
-    }
-
-    @keyframes moveY {
-      from {
-        top: 0;
+      header {
+        align-self: flex-start;
+        max-width: 60%;
+        text-align: left;
       }
 
-      to {
-        top: calc(100vh - 8rem);
+      h1 {
+        font-size: 5rem;
+        line-height: 0.9;
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
       }
-    }
-  </style>
-</head>
 
-<body>
-  <span class="handwave">👋</span>
-  <h1 clasS="title">Hello! Kelok here, a software developer</h1>
-  <h3>Feel free to contact me through my
-    <a href="mailto:kelokchan@gmail.com"><i>email</i></a>
-    and visit any of the links below: 🫰
-  </h3>
-  <a href="https://www.linkedin.com/in/kelokchan/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-  <a href="https://stackoverflow.com/users/4973453/kelok-chan" target="_blank" rel="noopener noreferrer">Stack
-    Overflow</a>
-  <a href="https://github.com/kelokchan" target="_blank" rel="noopener noreferrer">GitHub</a>
-  </ul>
-</body>
-<script>
-  const handwave = document.querySelector('.handwave');
-  const title = document.querySelector('.title');
+      h1 small {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: 400;
+        letter-spacing: 0;
+        margin-top: 10px;
+        text-transform: none;
+      }
 
-  handwave.addEventListener('click', () => {
-    handwave.classList.add('bouncing');
-    handwave.innerHTML = '🙌';
+      main {
+        align-self: flex-end;
+        text-align: right;
+        max-width: 50%;
+        margin-top: auto;
+        padding-bottom: 20px;
+      }
 
-    title.innerHTML = 'Yay High 5 🙌';
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-bottom: 24px;
+        line-height: 1.4;
+      }
 
-  });
-</script>
+      h3 a {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 4px;
+      }
 
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-end;
+        font-size: 1.5rem;
+      }
+
+      a {
+        color: inherit;
+        transition: color 0.3s ease;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 40px;
+        }
+
+        header,
+        main {
+          max-width: 100%;
+        }
+
+        header {
+          margin-bottom: 40px;
+        }
+
+        h1 {
+          font-size: 3rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <svg class="wavy-border" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="wavyFilter">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.02"
+            numOctaves="3"
+            result="noise"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="noise"
+            scale="4"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </defs>
+      <rect
+        x="0"
+        y="0"
+        width="100%"
+        height="100%"
+        class="wave"
+        pathLength="1"
+      />
+    </svg>
+    <header>
+      <h1>Hello! <small>I am Kelok Chan, a software developer</small></h1>
+    </header>
+
+    <main>
+      <h3>
+        Feel free to contact me through my
+        <a href="mailto:kelokchan@gmail.com">email</a>
+        and visit any of the links below
+      </h3>
+
+      <div class="links">
+        <a
+          href="https://www.linkedin.com/in/kelokchan/"
+          target="_blank"
+          rel="noopener noreferrer"
+          >LinkedIn</a
+        >
+        <a
+          href="https://stackoverflow.com/users/4973453/kelok-chan"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Stack Overflow</a
+        >
+        <a
+          href="https://github.com/kelokchan"
+          target="_blank"
+          rel="noopener noreferrer"
+          >GitHub</a
+        >
+      </div>
+    </main>
+  </body>
 </html>

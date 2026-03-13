@@ -201,6 +201,10 @@
         font-weight: 700;
       }
 
+      .blue {
+        color: var(--blue);
+      }
+
       .cursor {
         display: inline-block;
         width: 8px;
@@ -249,16 +253,12 @@
         transform: translateY(0);
       }
 
-      .neofetch-info .line {
-        opacity: 0;
-        transform: translateX(-8px);
+      .neo-line {
+        display: none;
       }
 
-      .neofetch-info .line.show {
-        opacity: 1;
-        transform: translateX(0);
-        transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
-          transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      .neo-line.visible {
+        display: block;
       }
 
       .separator {
@@ -282,6 +282,28 @@
         display: flex;
       }
 
+      .input-line {
+        display: flex;
+        align-items: center;
+        line-height: 1.7;
+        font-size: clamp(13px, 1.6vw, 15px);
+        margin-bottom: 4px;
+      }
+
+      #term-input {
+        background: none;
+        border: none;
+        color: var(--fg);
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: 500;
+        outline: none;
+        width: 100%;
+        caret-shape: block;
+        caret-color: var(--fg);
+        line-height: inherit;
+      }
+
       @keyframes blink {
         50% { opacity: 0; }
       }
@@ -295,11 +317,14 @@
           display: flex !important;
         }
 
-        .neofetch .ascii-art,
-        .neofetch-info .line {
+        .neofetch .ascii-art {
           opacity: 1 !important;
           transform: none !important;
           transition: none !important;
+        }
+
+        .neo-line {
+          display: block !important;
         }
 
         .cursor {
@@ -340,15 +365,9 @@
       </div>
       <div class="body" id="terminal-body">
 
-        <div class="line" data-line="0"><span class="prompt">&#10095; </span><span class="command" data-type data-text="whoami"></span></div>
+        <div class="line" data-line="0"><span class="prompt">&#10095; </span><span class="command" data-type data-text="neofetch"></span></div>
         <div class="line blank" data-line="1"></div>
-        <div class="line" data-line="2"><span class="accent" data-type data-text="Kelok Chan"></span></div>
-        <div class="line" data-line="3"><span class="highlight" data-type data-text="Software Developer"></span></div>
-        <div class="line blank" data-line="4"></div>
-
-        <div class="line" data-line="5"><span class="prompt">&#10095; </span><span class="command" data-type data-text="neofetch"></span></div>
-        <div class="line blank" data-line="6"></div>
-        <div class="neofetch" data-line="7">
+        <div class="neofetch" data-line="2">
           <div class="ascii-art" aria-hidden="true">
  ██╗  ██╗ ██████╗
  ██║ ██╔╝██╔════╝
@@ -357,32 +376,37 @@
  ██║  ██╗╚██████╗
  ╚═╝  ╚═╝ ╚═════╝</div>
           <div class="neofetch-info">
-            <div class="line"><span class="accent">kelok</span><span class="fg-dim">@</span><span class="accent">dev</span></div>
-            <div class="line"><span class="separator">-----------</span></div>
-            <div class="line"><span class="purple key">Role</span><span class="comment">     </span><span class="fg">Software Developer @ Kaikai Kiki</span></div>
-            <div class="line"><span class="purple key">Stack</span><span class="comment">    </span><span class="fg">TypeScript, JavaScript, C#</span></div>
-            <div class="line"><span class="purple key">Also</span><span class="comment">     </span><span class="fg">React, Node.js, Flutter, Web3</span></div>
-            <div class="line"><span class="purple key">Editor</span><span class="comment">   </span><span class="fg">VS Code</span></div>
-            <div class="line"><span class="purple key">Shell</span><span class="comment">    </span><span class="fg">zsh</span></div>
-            <div class="line"><span class="purple key">Location</span><span class="comment"> </span><span class="fg">Malaysia</span></div>
-            <div class="line"><span class="purple key">Uptime</span><span class="comment">   </span><span class="fg">10+ years</span></div>
-            <div class="line blank"></div>
-            <div class="line"><span style="background:#f7768e;color:#f7768e;">██</span><span style="background:#ff9e64;color:#ff9e64;">██</span><span style="background:#e0af68;color:#e0af68;">██</span><span style="background:#9ece6a;color:#9ece6a;">██</span><span style="background:#7aa2f7;color:#7aa2f7;">██</span><span style="background:#bb9af7;color:#bb9af7;">██</span><span style="background:#7dcfff;color:#7dcfff;">██</span></div>
+            <div class="line neo-line"><span class="accent" data-neo data-text="kelok"></span><span class="fg-dim" data-neo data-text="@"></span><span class="accent" data-neo data-text="dev"></span></div>
+            <div class="line neo-line"><span class="separator" data-neo data-text="-----------"></span></div>
+            <div class="line neo-line"><span class="key" data-neo data-text="Name"></span><span class="comment" data-neo data-text="     "></span><span class="accent" data-neo data-text="Kelok Chan"></span></div>
+            <div class="line neo-line"><span class="key" data-neo data-text="Role"></span><span class="comment" data-neo data-text="     "></span><span data-neo data-text="Software Developer @ Kaikai Kiki"></span></div>
+            <div class="line neo-line"><span class="key" data-neo data-text="Stack"></span><span class="comment" data-neo data-text="    "></span><span data-neo data-text="TypeScript, JavaScript, C#"></span></div>
+            <div class="line neo-line"><span class="key" data-neo data-text="Also"></span><span class="comment" data-neo data-text="     "></span><span data-neo data-text="React, Node.js, Flutter, Web3"></span></div>
+            <div class="line neo-line"><span class="key" data-neo data-text="Editor"></span><span class="comment" data-neo data-text="   "></span><span data-neo data-text="VS Code"></span></div>
+            <div class="line neo-line"><span class="key" data-neo data-text="Shell"></span><span class="comment" data-neo data-text="    "></span><span data-neo data-text="zsh"></span></div>
+            <div class="line neo-line"><span class="key" data-neo data-text="Location"></span><span class="comment" data-neo data-text=" "></span><span data-neo data-text="Malaysia"></span></div>
+            <div class="line neo-line"><span class="key" data-neo data-text="Uptime"></span><span class="comment" data-neo data-text="   "></span><span data-neo data-text="10+ years"></span></div>
+            <div class="line blank neo-line"></div>
+            <div class="line neo-line"><span style="background:#f7768e;color:#f7768e;" data-neo data-text="██"></span><span style="background:#ff9e64;color:#ff9e64;" data-neo data-text="██"></span><span style="background:#e0af68;color:#e0af68;" data-neo data-text="██"></span><span style="background:#9ece6a;color:#9ece6a;" data-neo data-text="██"></span><span style="background:#7aa2f7;color:#7aa2f7;" data-neo data-text="██"></span><span style="background:#bb9af7;color:#bb9af7;" data-neo data-text="██"></span><span style="background:#7dcfff;color:#7dcfff;" data-neo data-text="██"></span></div>
           </div>
         </div>
-        <div class="line blank" data-line="8"></div>
+        <div class="line blank" data-line="3"></div>
 
-        <div class="line" data-line="9"><span class="prompt">&#10095; </span><span class="command" data-type data-text="cat contact.json"></span></div>
-        <div class="line blank" data-line="10"></div>
-        <div class="line" data-line="11"><span class="comment" data-type data-text="{"></span></div>
-        <div class="line" data-line="12">  <span class="key" data-type data-text='"email"'></span><span data-type data-text=":    "></span><a href="mailto:kelokchan@gmail.com" class="link value" data-type data-text='"kelokchan@gmail.com"'></a></div>
-        <div class="line" data-line="13">  <span class="key" data-type data-text='"linkedin"'></span><span data-type data-text=": "></span><a href="https://www.linkedin.com/in/kelokchan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)" class="link value" data-type data-text='"https://linkedin.com/in/kelokchan"'></a></div>
-        <div class="line" data-line="14">  <span class="key" data-type data-text='"github"'></span><span data-type data-text=":   "></span><a href="https://github.com/kelokchan" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)" class="link value" data-type data-text='"https://github.com/kelokchan"'></a></div>
-        <div class="line" data-line="15">  <span class="key" data-type data-text='"stack"'></span><span data-type data-text=":    "></span><a href="https://stackoverflow.com/users/4973453/kelok-chan" target="_blank" rel="noopener noreferrer" aria-label="Stack Overflow (opens in new tab)" class="link value" data-type data-text='"https://stackoverflow.com/users/kelok-chan"'></a></div>
-        <div class="line" data-line="16"><span class="comment" data-type data-text="}"></span></div>
-        <div class="line blank" data-line="17"></div>
+        <div class="line" data-line="4"><span class="prompt">&#10095; </span><span class="command" data-type data-text="cat contact.json"></span></div>
+        <div class="line blank" data-line="5"></div>
+        <div class="line" data-line="6"><span class="comment" data-type data-text="{"></span></div>
+        <div class="line" data-line="7">  <span class="key" data-type data-text='"email"'></span><span data-type data-text=":    "></span><a href="mailto:kelokchan@gmail.com" class="link value" data-type data-text='"kelokchan@gmail.com"'></a></div>
+        <div class="line" data-line="8">  <span class="key" data-type data-text='"linkedin"'></span><span data-type data-text=": "></span><a href="https://www.linkedin.com/in/kelokchan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)" class="link value" data-type data-text='"https://linkedin.com/in/kelokchan"'></a></div>
+        <div class="line" data-line="9">  <span class="key" data-type data-text='"github"'></span><span data-type data-text=":   "></span><a href="https://github.com/kelokchan" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)" class="link value" data-type data-text='"https://github.com/kelokchan"'></a></div>
+        <div class="line" data-line="10">  <span class="key" data-type data-text='"stack"'></span><span data-type data-text=":    "></span><a href="https://stackoverflow.com/users/4973453/kelok-chan" target="_blank" rel="noopener noreferrer" aria-label="Stack Overflow (opens in new tab)" class="link value" data-type data-text='"https://stackoverflow.com/users/kelok-chan"'></a></div>
+        <div class="line" data-line="11"><span class="comment" data-type data-text="}"></span></div>
+        <div class="line blank" data-line="12"></div>
 
-        <div class="line" data-line="18"><span class="prompt">&#10095; </span><span class="cursor" aria-hidden="true"></span></div>
+        <div class="line" data-line="13"><span class="prompt">&#10095; </span><span class="cursor" aria-hidden="true"></span></div>
+
+        <div class="input-line" id="input-line" style="display:none;">
+          <span class="prompt">&#10095; </span><input type="text" id="term-input" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal input" />
+        </div>
       </div>
     </div>
 
@@ -449,70 +473,311 @@
           return new Promise(function (r) { setTimeout(r, ms); });
         }
 
-        function revealNeofetch() {
+        function typeNeoLine(line, speed) {
           return new Promise(function (resolve) {
-            var neofetch = allLines[7];
-            var infoLines = neofetch.querySelectorAll('.neofetch-info .line');
-            var i = 0;
-            function next() {
-              if (i < infoLines.length) {
-                infoLines[i].classList.add('show');
-                i++;
+            line.classList.add('visible');
+            var spans = line.querySelectorAll('[data-neo]');
+            if (!spans.length) { scrollDown(); resolve(); return; }
+            var spanIdx = 0;
+            var charIdx = 0;
+            function tick() {
+              if (spanIdx >= spans.length) { resolve(); return; }
+              var span = spans[spanIdx];
+              var text = span.dataset.text;
+              if (charIdx < text.length) {
+                span.textContent += text[charIdx];
+                charIdx++;
                 scrollDown();
-                setTimeout(next, 80);
+                setTimeout(tick, speed);
               } else {
-                resolve();
+                spanIdx++;
+                charIdx = 0;
+                tick();
               }
             }
-            next();
+            tick();
           });
         }
 
+        async function revealNeofetch() {
+          var neofetch = allLines[2];
+          var neoLines = neofetch.querySelectorAll('.neo-line');
+          for (var i = 0; i < neoLines.length; i++) {
+            await typeNeoLine(neoLines[i], 8);
+          }
+        }
+
         async function run() {
-          // whoami
+          // neofetch
+          await wait(150);
+          await typeSpans(0, 25);
           await wait(200);
-          await typeSpans(0, 40);
-          await wait(250);
 
           showLine(1);
-          await typeSpans(2, 35);
-          await wait(80);
-          await typeSpans(3, 25);
-          await wait(300);
-
-          // neofetch
-          showLine(4);
-          await typeSpans(5, 40);
-          await wait(300);
-
-          showLine(6);
-          showLine(7);
-          await wait(200);
+          showLine(2);
+          await wait(100);
           await revealNeofetch();
-          await wait(400);
-
-          // cat contact.json
-          showLine(8);
-          await typeSpans(9, 40);
           await wait(250);
 
-          showLine(10);
-          await typeSpans(11, 20);
-          await typeSpans(12, 15);
-          await typeSpans(13, 15);
-          await typeSpans(14, 15);
-          await typeSpans(15, 15);
-          await typeSpans(16, 20);
-          await wait(200);
+          // cat contact.json
+          showLine(3);
+          await typeSpans(4, 25);
+          await wait(150);
 
-          // final prompt
-          showLine(17);
-          showLine(18);
-          cursor.parentNode.removeChild(cursor);
-          allLines[18].appendChild(cursor);
+          showLine(5);
+          await typeSpans(6, 12);
+          await typeSpans(7, 8);
+          await typeSpans(8, 8);
+          await typeSpans(9, 8);
+          await typeSpans(10, 8);
+          await typeSpans(11, 12);
+          await wait(150);
+
+          // final prompt — hide static prompt, show interactive input
+          showLine(12);
+          allLines[13].style.display = 'none';
+          cursor.style.display = 'none';
+          enableInteractive();
         }
 
         run();
+
+        function enableInteractive() {
+          var inputLine = document.getElementById('input-line');
+          var input = document.getElementById('term-input');
+          inputLine.style.display = 'flex';
+          input.focus();
+          scrollDown();
+
+          // Focus input when clicking anywhere in terminal body
+          termBody.addEventListener('click', function () { input.focus(); });
+
+          var history = [];
+          var histIdx = -1;
+
+          input.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') {
+              var cmd = input.value.trim();
+              input.value = '';
+              histIdx = -1;
+              if (cmd) history.unshift(cmd);
+              execCommand(cmd);
+            } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              if (histIdx < history.length - 1) {
+                histIdx++;
+                input.value = history[histIdx];
+              }
+            } else if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              if (histIdx > 0) {
+                histIdx--;
+                input.value = history[histIdx];
+              } else {
+                histIdx = -1;
+                input.value = '';
+              }
+            } else if (e.key === 'l' && e.ctrlKey) {
+              e.preventDefault();
+              clearTerminal();
+            }
+          });
+
+          function addLine(html) {
+            var div = document.createElement('div');
+            div.className = 'line';
+            div.innerHTML = html;
+            termBody.insertBefore(div, inputLine);
+            scrollDown();
+          }
+
+          function addBlank() {
+            var div = document.createElement('div');
+            div.className = 'line blank';
+            termBody.insertBefore(div, inputLine);
+          }
+
+          function clearTerminal() {
+            var children = Array.from(termBody.children);
+            children.forEach(function (c) {
+              if (c !== inputLine) termBody.removeChild(c);
+            });
+            scrollDown();
+          }
+
+          var commands = {
+            help: function () {
+              addBlank();
+              addLine('<span class="highlight">Available commands:</span>');
+              addBlank();
+              addLine('  <span class="command">whoami</span>        <span class="comment">— who is kelok</span>');
+              addLine('  <span class="command">neofetch</span>      <span class="comment">— system info</span>');
+              addLine('  <span class="command">cat contact.json</span> <span class="comment">— contact details</span>');
+              addLine('  <span class="command">ls</span>            <span class="comment">— list files</span>');
+              addLine('  <span class="command">clear</span>         <span class="comment">— clear terminal</span>');
+              addLine('  <span class="command">history</span>       <span class="comment">— command history</span>');
+              addLine('  <span class="command">echo [text]</span>   <span class="comment">— echo text</span>');
+              addLine('  <span class="command">date</span>          <span class="comment">— current date</span>');
+              addLine('  <span class="command">joke</span>          <span class="comment">— random dad joke</span>');
+            },
+            whoami: function () {
+              addBlank();
+              addLine('<span class="accent">Kelok Chan</span>');
+              addLine('<span class="highlight">Software Developer</span>');
+            },
+            neofetch: function () {
+              addBlank();
+              var neo = document.createElement('div');
+              neo.className = 'neofetch';
+              neo.innerHTML = '<div class="ascii-art" aria-hidden="true" style="opacity:1;transform:none;">\n ██╗  ██╗ ██████╗\n ██║ ██╔╝██╔════╝\n █████╔╝ ██║\n ██╔═██╗ ██║\n ██║  ██╗╚██████╗\n ╚═╝  ╚═╝ ╚═════╝</div>' +
+                '<div class="neofetch-info">' +
+                '<div class="line" style="opacity:1;transform:none;"><span class="accent">kelok</span><span class="fg-dim">@</span><span class="accent">dev</span></div>' +
+                '<div class="line" style="opacity:1;transform:none;"><span class="separator">-----------</span></div>' +
+                '<div class="line" style="opacity:1;transform:none;"><span class="key">Name</span><span class="comment">     </span><span class="accent">Kelok Chan</span></div>' +
+                '<div class="line" style="opacity:1;transform:none;"><span class="key">Role</span><span class="comment">     </span><span>Software Developer @ Kaikai Kiki</span></div>' +
+                '<div class="line" style="opacity:1;transform:none;"><span class="key">Stack</span><span class="comment">    </span><span>TypeScript, JavaScript, C#</span></div>' +
+                '<div class="line" style="opacity:1;transform:none;"><span class="key">Also</span><span class="comment">     </span><span>React, Node.js, Flutter, Web3</span></div>' +
+                '<div class="line" style="opacity:1;transform:none;"><span class="key">Editor</span><span class="comment">   </span><span>VS Code</span></div>' +
+                '<div class="line" style="opacity:1;transform:none;"><span class="key">Shell</span><span class="comment">    </span><span>zsh</span></div>' +
+                '<div class="line" style="opacity:1;transform:none;"><span class="key">Location</span><span class="comment"> </span><span>Malaysia</span></div>' +
+                '<div class="line" style="opacity:1;transform:none;"><span class="key">Uptime</span><span class="comment">   </span><span>10+ years</span></div>' +
+                '<div class="line blank" style="opacity:1;transform:none;"></div>' +
+                '<div class="line" style="opacity:1;transform:none;"><span style="background:#f7768e;color:#f7768e;">██</span><span style="background:#ff9e64;color:#ff9e64;">██</span><span style="background:#e0af68;color:#e0af68;">██</span><span style="background:#9ece6a;color:#9ece6a;">██</span><span style="background:#7aa2f7;color:#7aa2f7;">██</span><span style="background:#bb9af7;color:#bb9af7;">██</span><span style="background:#7dcfff;color:#7dcfff;">██</span></div>' +
+                '</div>';
+              termBody.insertBefore(neo, inputLine);
+              scrollDown();
+            },
+            'cat contact.json': function () {
+              addBlank();
+              addLine('<span class="comment">{</span>');
+              addLine('  <span class="key">"email"</span>:    <a href="mailto:kelokchan@gmail.com" class="link value">"kelokchan@gmail.com"</a>');
+              addLine('  <span class="key">"linkedin"</span>: <a href="https://www.linkedin.com/in/kelokchan/" target="_blank" rel="noopener noreferrer" class="link value">"https://linkedin.com/in/kelokchan"</a>');
+              addLine('  <span class="key">"github"</span>:   <a href="https://github.com/kelokchan" target="_blank" rel="noopener noreferrer" class="link value">"https://github.com/kelokchan"</a>');
+              addLine('  <span class="key">"stack"</span>:    <a href="https://stackoverflow.com/users/4973453/kelok-chan" target="_blank" rel="noopener noreferrer" class="link value">"https://stackoverflow.com/users/kelok-chan"</a>');
+              addLine('<span class="comment">}</span>');
+            },
+            ls: function () {
+              addBlank();
+              addLine('<span class="blue">contact.json</span>  <span class="blue">README.md</span>  <span class="blue">skills.txt</span>');
+            },
+            clear: function () {
+              clearTerminal();
+            },
+            history: function () {
+              addBlank();
+              if (!history.length) {
+                addLine('<span class="comment">No history yet.</span>');
+                return;
+              }
+              for (var i = history.length - 1; i >= 0; i--) {
+                addLine('  <span class="fg-dim">' + (history.length - i) + '</span>  ' + escapeHtml(history[i]));
+              }
+            },
+            date: function () {
+              addBlank();
+              addLine('<span class="fg">' + new Date().toString() + '</span>');
+            },
+            joke: function () {
+              addBlank();
+              addLine('<span class="fg-dim">Loading...</span>');
+              var loadingLine = inputLine.previousElementSibling;
+              fetch('https://official-joke-api.appspot.com/random_joke')
+                .then(function (r) { return r.json(); })
+                .then(function (joke) {
+                  loadingLine.innerHTML = '<span class="highlight">' + escapeHtml(joke.setup) + '</span>';
+                  addLine('<span class="fg">' + escapeHtml(joke.punchline) + '</span>');
+                })
+                .catch(function () {
+                  loadingLine.innerHTML = '<span class="comment">Couldn\'t fetch a joke. Try again.</span>';
+                });
+            },
+            'cat README.md': function () {
+              addBlank();
+              addLine('<span class="accent"># Kelok Chan</span>');
+              addBlank();
+              addLine('<span class="fg">Software developer who likes building things for the web.</span>');
+              addLine('<span class="fg">Currently at Kaikai Kiki.</span>');
+              addBlank();
+              addLine('<span class="comment">Type `help` to see available commands.</span>');
+            },
+            'cat skills.txt': function () {
+              addBlank();
+              addLine('<span class="highlight">Languages</span>');
+              addLine('<span class="fg">  TypeScript, JavaScript, C#, Dart</span>');
+              addBlank();
+              addLine('<span class="highlight">Frameworks</span>');
+              addLine('<span class="fg">  React, Node.js, Flutter, .NET</span>');
+              addBlank();
+              addLine('<span class="highlight">Other</span>');
+              addLine('<span class="fg">  Web3, Solidity, GraphQL, Git</span>');
+            }
+          };
+
+          // Easter eggs
+          var eggs = {
+            'sudo': function () { addBlank(); addLine('<span class="accent">Nice try.</span>'); },
+            'rm -rf /': function () { addBlank(); addLine('<span class="accent">Yeah, no.</span>'); },
+            'rm -rf': function () { addBlank(); addLine('<span class="accent">I like living, thanks.</span>'); },
+            'exit': function () { addBlank(); addLine('<span class="comment">There is no escape.</span>'); },
+            'cd ..': function () { addBlank(); addLine('<span class="comment">You\'re already home.</span>'); },
+            'pwd': function () { addBlank(); addLine('<span class="fg">/home/kelok</span>'); },
+            'vim': function () { addBlank(); addLine('<span class="comment">Good luck getting out.</span>'); },
+            'emacs': function () { addBlank(); addLine('<span class="comment">Let\'s not start a war.</span>'); },
+            'curl': function () { addBlank(); addLine('<span class="comment">curl: try adding a URL next time</span>'); },
+            'ping': function () { addBlank(); addLine('<span class="fg">pong</span>'); },
+            'hello': function () { addBlank(); addLine('<span class="green prompt">Hey there!</span> <span class="fg">Type</span> <span class="command">help</span> <span class="fg">to explore.</span>'); },
+            'hi': function () { commands['hello'](); },
+          };
+
+          function escapeHtml(s) {
+            return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          }
+
+          function execCommand(cmd) {
+            addLine('<span class="prompt">&#10095; </span><span class="command">' + escapeHtml(cmd) + '</span>');
+
+            if (!cmd) return;
+
+            var lower = cmd.toLowerCase();
+            if (commands[lower]) {
+              commands[lower]();
+            } else if (eggs[lower]) {
+              eggs[lower]();
+            } else if (lower.startsWith('echo ')) {
+              addBlank();
+              addLine('<span class="fg">' + escapeHtml(cmd.slice(5)) + '</span>');
+            } else if (lower.startsWith('sudo ')) {
+              addBlank();
+              addLine('<span class="accent">Permission denied. Nice try though.</span>');
+            } else if (lower.startsWith('cat ')) {
+              addBlank();
+              addLine('<span class="accent">cat: ' + escapeHtml(cmd.slice(4)) + ': No such file</span>');
+            } else if (lower.startsWith('open ') || lower.startsWith('xdg-open ')) {
+              addBlank();
+              addLine('<span class="comment">Try clicking the links in contact.json instead.</span>');
+            } else {
+              addBlank();
+              addLine('<span class="accent">command not found: ' + escapeHtml(cmd) + '</span>');
+              addLine('<span class="comment">Here\'s a joke instead:</span>');
+              addBlank();
+              addLine('<span class="fg-dim">Loading...</span>');
+              var loadingLine = inputLine.previousElementSibling;
+              fetch('https://official-joke-api.appspot.com/random_joke')
+                .then(function (r) { return r.json(); })
+                .then(function (joke) {
+                  loadingLine.innerHTML = '<span class="highlight">' + escapeHtml(joke.setup) + '</span>';
+                  addLine('<span class="fg">' + escapeHtml(joke.punchline) + '</span>');
+                })
+                .catch(function () {
+                  loadingLine.innerHTML = '<span class="comment">Couldn\'t fetch a joke. Try again.</span>';
+                });
+            }
+
+            addBlank();
+            scrollDown();
+            input.focus();
+          }
+        }
       })();
     </script>
   </body>

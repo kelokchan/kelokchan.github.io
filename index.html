@@ -4,253 +4,516 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kelok Chan</title>
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta
+      name="description"
+      content="Kelok Chan — Software Developer. Get in touch via email, LinkedIn, Stack Overflow, or GitHub."
+    />
+    <meta property="og:title" content="Kelok Chan — Software Developer" />
+    <meta
+      property="og:description"
+      content="Get in touch via email, LinkedIn, Stack Overflow, or GitHub."
+    />
+    <meta property="og:type" content="website" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap"
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap"
       rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
     <style>
       :root {
-        --bg-color: #f5f5dc;
-        --text-color: #934c04;
-        --accent-color: #1c0e05;
+        --bg: #1a1b26;
+        --fg: #a9b1d6;
+        --fg-dim: #565f89;
+        --accent: #f7768e;
+        --green: #9ece6a;
+        --blue: #7aa2f7;
+        --yellow: #e0af68;
+        --cyan: #7dcfff;
+        --purple: #bb9af7;
+        --titlebar: #13141d;
+        --border: #292e42;
+        --dot-red: #ff5f57;
+        --dot-yellow: #febc2e;
+        --dot-green: #28c840;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      ::selection {
+        background: var(--blue);
+        color: var(--bg);
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--blue);
+        outline-offset: 2px;
       }
 
       body {
-        background-color: var(--bg-color);
-        color: var(--text-color);
-        font-family: 'Gochi Hand', cursive;
-        margin: 0;
-        padding: 40px;
+        background: #0a0b10;
+        font-family: 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
         min-height: 100vh;
-        box-sizing: border-box;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(16px, 4vw, 48px);
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .terminal {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        width: 100%;
+        max-width: 720px;
+        max-height: min(85vh, 600px);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+        overflow: hidden;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        overflow-x: hidden;
+      }
+
+      .titlebar {
+        background: var(--titlebar);
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 1px solid var(--border);
+        user-select: none;
+      }
+
+      .dots {
+        display: flex;
+        gap: 6px;
+      }
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .dot.red { background: var(--dot-red); }
+      .dot.yellow { background: var(--dot-yellow); }
+      .dot.green { background: var(--dot-green); }
+
+      .titlebar-text {
+        flex: 1;
+        text-align: center;
+        font-size: 12px;
+        color: var(--fg-dim);
+        margin-right: 52px;
+      }
+
+      .body {
+        padding: clamp(20px, 3vw, 32px);
+        flex: 1;
+        overflow: auto;
+        scroll-behavior: smooth;
+      }
+
+      .line {
+        margin-bottom: 4px;
+        line-height: 1.7;
+        font-size: clamp(13px, 1.6vw, 15px);
+        color: var(--fg);
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      .line.blank {
+        height: 1.7em;
+      }
+
+      .prompt {
+        color: var(--green);
+      }
+
+      .command {
+        color: var(--fg);
+        font-weight: 500;
+      }
+
+      .comment {
+        color: var(--fg-dim);
+      }
+
+      .highlight {
+        color: var(--yellow);
+      }
+
+      .key {
+        color: var(--purple);
+      }
+
+      .value {
+        color: var(--cyan);
+      }
+
+      .link {
+        color: var(--blue);
+        text-decoration: none;
         position: relative;
       }
 
-      h1,
-      h1 small,
-      p,
-      h3,
-      .links a {
-        clip-path: inset(0 100% 0 0);
-        animation: writeText 1s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
-        display: inline-block;
-        vertical-align: bottom;
-        white-space: nowrap;
-      }
-
-      h3 {
-        white-space: normal;
-        animation-duration: 1.5s;
-      }
-
-      h1 {
-        animation-delay: 0.1s;
-      }
-      h1 small {
-        animation-delay: 1.5s;
-      }
-      main h3 {
-        animation-delay: 2s;
-      }
-      .links a:nth-child(1) {
-        animation-delay: 3s;
-      }
-      .links a:nth-child(2) {
-        animation-delay: 3.2s;
-      }
-      .links a:nth-child(3) {
-        animation-delay: 3.4s;
-      }
-
-      @keyframes writeText {
-        to {
-          clip-path: inset(0 0 0 0);
-        }
-      }
-
-      .wavy-border {
+      .link::after {
+        content: '';
         position: absolute;
-        top: 20px;
-        left: 20px;
-        width: calc(100% - 40px);
-        height: calc(100% - 40px);
-        pointer-events: none;
-        z-index: -1;
-        overflow: visible;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: var(--blue);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1);
       }
 
-      .wave {
-        stroke: var(--text-color);
-        stroke-width: 3px;
-        fill: none;
-        filter: url(#wavyFilter);
-        stroke-dasharray: 1;
-        stroke-dashoffset: 1;
-        animation: borderDraw 2s ease-out forwards;
-      }
-
-      @keyframes borderDraw {
-        from {
-          stroke-dashoffset: 1;
-        }
-        to {
-          stroke-dashoffset: 0;
+      @media (hover: hover) {
+        .link:hover::after {
+          transform: scaleX(1);
+          transform-origin: left;
         }
       }
 
-      header {
-        align-self: flex-start;
-        max-width: 60%;
-        text-align: left;
+      .link:active {
+        opacity: 0.7;
       }
 
-      h1 {
-        font-size: 5rem;
-        line-height: 0.9;
-        margin: 0;
+      .accent {
+        color: var(--accent);
         font-weight: 700;
-        letter-spacing: 2px;
-        text-transform: uppercase;
       }
 
-      h1 small {
-        display: block;
-        font-size: 1.5rem;
-        font-weight: 400;
-        letter-spacing: 0;
-        margin-top: 10px;
-        text-transform: none;
+      .cursor {
+        display: inline-block;
+        width: 8px;
+        height: 1.1em;
+        background: var(--fg);
+        vertical-align: text-bottom;
+        margin-left: 2px;
+        animation: blink 1s step-end infinite;
       }
 
-      main {
-        align-self: flex-end;
-        text-align: right;
-        max-width: 50%;
-        margin-top: auto;
-        padding-bottom: 20px;
+      .neofetch {
+        display: flex;
+        gap: clamp(16px, 3vw, 32px);
+        align-items: flex-start;
+        flex-wrap: wrap;
       }
 
-      h3 {
-        font-size: 1.5rem;
-        font-weight: 400;
-        margin-bottom: 24px;
-        line-height: 1.4;
+      .ascii-art {
+        color: var(--accent);
+        font-size: clamp(10px, 1.4vw, 14px);
+        line-height: 1.2;
+        white-space: pre;
+        flex-shrink: 0;
       }
 
-      h3 a {
-        text-decoration: underline;
-        text-decoration-thickness: 2px;
-        text-underline-offset: 4px;
-      }
-
-      .links {
+      .neofetch-info {
         display: flex;
         flex-direction: column;
-        gap: 12px;
-        align-items: flex-end;
-        font-size: 1.5rem;
+        gap: 2px;
+        min-width: 0;
       }
 
-      a {
-        color: inherit;
-        transition: color 0.3s ease;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+      .neofetch-info .line {
+        margin-bottom: 0;
       }
 
-      a:hover {
-        color: var(--accent-color);
+      .neofetch .ascii-art {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+          transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
       }
 
-      @media (max-width: 768px) {
-        body {
-          padding: 40px;
+      .neofetch.visible .ascii-art {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .neofetch-info .line {
+        opacity: 0;
+        transform: translateX(-8px);
+      }
+
+      .neofetch-info .line.show {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+          transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .separator {
+        color: var(--fg-dim);
+      }
+
+      /* Hidden until typed */
+      .line[data-line] {
+        display: none;
+      }
+
+      .line[data-line].visible {
+        display: block;
+      }
+
+      .neofetch[data-line] {
+        display: none;
+      }
+
+      .neofetch[data-line].visible {
+        display: flex;
+      }
+
+      @keyframes blink {
+        50% { opacity: 0; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        [data-line] {
+          display: block !important;
         }
 
-        header,
-        main {
-          max-width: 100%;
+        .neofetch[data-line] {
+          display: flex !important;
         }
 
-        header {
-          margin-bottom: 40px;
+        .neofetch .ascii-art,
+        .neofetch-info .line {
+          opacity: 1 !important;
+          transform: none !important;
+          transition: none !important;
         }
 
-        h1 {
-          font-size: 3rem;
+        .cursor {
+          animation: none;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .terminal {
+          border-radius: 8px;
+        }
+
+        .titlebar {
+          padding: 10px 14px;
+        }
+
+        .dot {
+          width: 10px;
+          height: 10px;
+        }
+
+        .ascii-art {
+          font-size: 9px;
         }
       }
     </style>
   </head>
 
   <body>
-    <svg class="wavy-border" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <filter id="wavyFilter">
-          <feTurbulence
-            type="fractalNoise"
-            baseFrequency="0.02"
-            numOctaves="3"
-            result="noise"
-          />
-          <feDisplacementMap
-            in="SourceGraphic"
-            in2="noise"
-            scale="4"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          />
-        </filter>
-      </defs>
-      <rect
-        x="0"
-        y="0"
-        width="100%"
-        height="100%"
-        class="wave"
-        pathLength="1"
-      />
-    </svg>
-    <header>
-      <h1>Hello! <small>I am Kelok Chan, a software developer</small></h1>
-    </header>
-
-    <main>
-      <h3>
-        Feel free to contact me through my
-        <a href="mailto:kelokchan@gmail.com">email</a>
-        and visit any of the links below
-      </h3>
-
-      <div class="links">
-        <a
-          href="https://www.linkedin.com/in/kelokchan/"
-          target="_blank"
-          rel="noopener noreferrer"
-          >LinkedIn</a
-        >
-        <a
-          href="https://stackoverflow.com/users/4973453/kelok-chan"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Stack Overflow</a
-        >
-        <a
-          href="https://github.com/kelokchan"
-          target="_blank"
-          rel="noopener noreferrer"
-          >GitHub</a
-        >
+    <div class="terminal" role="main">
+      <div class="titlebar" aria-hidden="true">
+        <div class="dots">
+          <div class="dot red"></div>
+          <div class="dot yellow"></div>
+          <div class="dot green"></div>
+        </div>
+        <div class="titlebar-text">kelok@dev ~ </div>
       </div>
-    </main>
+      <div class="body" id="terminal-body">
+
+        <div class="line" data-line="0"><span class="prompt">&#10095; </span><span class="command" data-type data-text="whoami"></span></div>
+        <div class="line blank" data-line="1"></div>
+        <div class="line" data-line="2"><span class="accent" data-type data-text="Kelok Chan"></span></div>
+        <div class="line" data-line="3"><span class="highlight" data-type data-text="Software Developer"></span></div>
+        <div class="line blank" data-line="4"></div>
+
+        <div class="line" data-line="5"><span class="prompt">&#10095; </span><span class="command" data-type data-text="neofetch"></span></div>
+        <div class="line blank" data-line="6"></div>
+        <div class="neofetch" data-line="7">
+          <div class="ascii-art" aria-hidden="true">
+ ██╗  ██╗ ██████╗
+ ██║ ██╔╝██╔════╝
+ █████╔╝ ██║
+ ██╔═██╗ ██║
+ ██║  ██╗╚██████╗
+ ╚═╝  ╚═╝ ╚═════╝</div>
+          <div class="neofetch-info">
+            <div class="line"><span class="accent">kelok</span><span class="fg-dim">@</span><span class="accent">dev</span></div>
+            <div class="line"><span class="separator">-----------</span></div>
+            <div class="line"><span class="purple key">Role</span><span class="comment">     </span><span class="fg">Software Developer @ Kaikai Kiki</span></div>
+            <div class="line"><span class="purple key">Stack</span><span class="comment">    </span><span class="fg">TypeScript, JavaScript, C#</span></div>
+            <div class="line"><span class="purple key">Also</span><span class="comment">     </span><span class="fg">React, Node.js, Flutter, Web3</span></div>
+            <div class="line"><span class="purple key">Editor</span><span class="comment">   </span><span class="fg">VS Code</span></div>
+            <div class="line"><span class="purple key">Shell</span><span class="comment">    </span><span class="fg">zsh</span></div>
+            <div class="line"><span class="purple key">Location</span><span class="comment"> </span><span class="fg">Malaysia</span></div>
+            <div class="line"><span class="purple key">Uptime</span><span class="comment">   </span><span class="fg">10+ years</span></div>
+            <div class="line blank"></div>
+            <div class="line"><span style="background:#f7768e;color:#f7768e;">██</span><span style="background:#ff9e64;color:#ff9e64;">██</span><span style="background:#e0af68;color:#e0af68;">██</span><span style="background:#9ece6a;color:#9ece6a;">██</span><span style="background:#7aa2f7;color:#7aa2f7;">██</span><span style="background:#bb9af7;color:#bb9af7;">██</span><span style="background:#7dcfff;color:#7dcfff;">██</span></div>
+          </div>
+        </div>
+        <div class="line blank" data-line="8"></div>
+
+        <div class="line" data-line="9"><span class="prompt">&#10095; </span><span class="command" data-type data-text="cat contact.json"></span></div>
+        <div class="line blank" data-line="10"></div>
+        <div class="line" data-line="11"><span class="comment" data-type data-text="{"></span></div>
+        <div class="line" data-line="12">  <span class="key" data-type data-text='"email"'></span><span data-type data-text=":    "></span><a href="mailto:kelokchan@gmail.com" class="link value" data-type data-text='"kelokchan@gmail.com"'></a></div>
+        <div class="line" data-line="13">  <span class="key" data-type data-text='"linkedin"'></span><span data-type data-text=": "></span><a href="https://www.linkedin.com/in/kelokchan/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)" class="link value" data-type data-text='"https://linkedin.com/in/kelokchan"'></a></div>
+        <div class="line" data-line="14">  <span class="key" data-type data-text='"github"'></span><span data-type data-text=":   "></span><a href="https://github.com/kelokchan" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)" class="link value" data-type data-text='"https://github.com/kelokchan"'></a></div>
+        <div class="line" data-line="15">  <span class="key" data-type data-text='"stack"'></span><span data-type data-text=":    "></span><a href="https://stackoverflow.com/users/4973453/kelok-chan" target="_blank" rel="noopener noreferrer" aria-label="Stack Overflow (opens in new tab)" class="link value" data-type data-text='"https://stackoverflow.com/users/kelok-chan"'></a></div>
+        <div class="line" data-line="16"><span class="comment" data-type data-text="}"></span></div>
+        <div class="line blank" data-line="17"></div>
+
+        <div class="line" data-line="18"><span class="prompt">&#10095; </span><span class="cursor" aria-hidden="true"></span></div>
+      </div>
+    </div>
+
+    <script>
+      console.log(
+        '%cHey, curious one.',
+        'font-size:16px;font-weight:bold;color:#f7768e'
+      );
+      console.log(
+        "%cLet's connect \u2192 kelokchan@gmail.com",
+        'font-size:13px;color:#565f89'
+      );
+
+      (function () {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var allLines = document.querySelectorAll('[data-line]');
+        var cursor = document.querySelector('.cursor');
+
+        function showLine(n) {
+          allLines[n].classList.add('visible');
+          scrollDown();
+        }
+
+        function typeSpans(lineIndex, speed) {
+          return new Promise(function (resolve) {
+            showLine(lineIndex);
+            var spans = allLines[lineIndex].querySelectorAll('[data-type]');
+            if (!spans.length) { resolve(); return; }
+
+            var spanIdx = 0;
+            var charIdx = 0;
+
+            cursor.parentNode.removeChild(cursor);
+            var lastSpan = spans[spans.length - 1];
+            lastSpan.parentNode.insertBefore(cursor, lastSpan.nextSibling);
+
+            function tick() {
+              if (spanIdx >= spans.length) { resolve(); return; }
+              var span = spans[spanIdx];
+              var text = span.dataset.text;
+              if (charIdx < text.length) {
+                span.textContent += text[charIdx];
+                charIdx++;
+                scrollDown();
+                setTimeout(tick, speed);
+              } else {
+                spanIdx++;
+                charIdx = 0;
+                tick();
+              }
+            }
+            tick();
+          });
+        }
+
+        var termBody = document.getElementById('terminal-body');
+
+        function scrollDown() {
+          termBody.scrollTop = termBody.scrollHeight;
+        }
+
+        function wait(ms) {
+          return new Promise(function (r) { setTimeout(r, ms); });
+        }
+
+        function revealNeofetch() {
+          return new Promise(function (resolve) {
+            var neofetch = allLines[7];
+            var infoLines = neofetch.querySelectorAll('.neofetch-info .line');
+            var i = 0;
+            function next() {
+              if (i < infoLines.length) {
+                infoLines[i].classList.add('show');
+                i++;
+                scrollDown();
+                setTimeout(next, 80);
+              } else {
+                resolve();
+              }
+            }
+            next();
+          });
+        }
+
+        async function run() {
+          // whoami
+          await wait(200);
+          await typeSpans(0, 40);
+          await wait(250);
+
+          showLine(1);
+          await typeSpans(2, 35);
+          await wait(80);
+          await typeSpans(3, 25);
+          await wait(300);
+
+          // neofetch
+          showLine(4);
+          await typeSpans(5, 40);
+          await wait(300);
+
+          showLine(6);
+          showLine(7);
+          await wait(200);
+          await revealNeofetch();
+          await wait(400);
+
+          // cat contact.json
+          showLine(8);
+          await typeSpans(9, 40);
+          await wait(250);
+
+          showLine(10);
+          await typeSpans(11, 20);
+          await typeSpans(12, 15);
+          await typeSpans(13, 15);
+          await typeSpans(14, 15);
+          await typeSpans(15, 15);
+          await typeSpans(16, 20);
+          await wait(200);
+
+          // final prompt
+          showLine(17);
+          showLine(18);
+          cursor.parentNode.removeChild(cursor);
+          allLines[18].appendChild(cursor);
+        }
+
+        run();
+      })();
+    </script>
   </body>
 </html>
